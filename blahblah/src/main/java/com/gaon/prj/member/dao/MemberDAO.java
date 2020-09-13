@@ -1,5 +1,8 @@
 package com.gaon.prj.member.dao;
 
-public interface MemberDAO {
+import com.gaon.prj.member.vo.MemberVO;
 
+public interface MemberDAO {
+	
+	public int newMember(MemberVO memberVO);
 }

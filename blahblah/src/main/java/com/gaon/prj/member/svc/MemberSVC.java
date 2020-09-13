@@ -1,5 +1,7 @@
 package com.gaon.prj.member.svc;
 
-public interface MemberSVC {
+import com.gaon.prj.member.vo.MemberVO;
 
+public interface MemberSVC {
+	public int newMember(MemberVO memberVO);
 }

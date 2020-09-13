@@ -27,7 +27,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<span style="text-align: center;"><h3>회원가입</h3></span>
-			<form>
+			<form action="${contextPath }/prj/member/newMember" method="post">
 				<p>
 					<div class="input-group">
 					<span class="input-group-addon" ></span> 
@@ -43,13 +43,7 @@
 				<p>
 					<div class="input-group">
 					<span class="input-group-addon"></span> 
-					<input id="name" name="name" type="text" class="form-control" placeholder="이름">
-					</div>
-				</p>
-				<p>
-					<div class="input-group">
-					<span class="input-group-addon"></span> 
-					<input id="age" name="age" type="text" class="form-control" placeholder="나이">
+					<input id="nickname" name="nickname" type="text" class="form-control" placeholder="닉네임">
 					</div>
 				</p>
 				<p>
@@ -61,8 +55,7 @@
 				<p>
 					<div class="input-group">
 					<span class="input-group-addon"></span> 
-					<input id="address" name="address" type="text" class="form-control" placeholder="주소">
-					<input type="button" class="btn btn-default" value="주소찾기">
+					<input id="phone" name="phone" type="text" class="form-control" placeholder="전화번호">
 					</div>
 				</p>
 				<input type="submit" class="btn btn-default" value="가입하기" />
