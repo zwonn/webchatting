@@ -16,4 +16,9 @@ public class MemberDAOImpl implements MemberDAO {
 	public int newMember(MemberVO memberVO) {
 		return sqlSession.insert("mappers.MemberDAO-mapper.newMember",memberVO);
 	}
+	
+	@Override
+	public MemberVO memberCheck(MemberVO memberVO) {
+		return sqlSession.selectOne("mappers.MemberDAO-mapper.memberCheck",memberVO);
+	}
 }

@@ -31,9 +31,9 @@
 					<a class="navbar-brand" href="${pageContext.request.contextPath }">BlahBlah</a>
 				</div>
 				<ul class="nav navbar-nav">
-					<li><a href="#">자유게시판</a></li>
-					<li><a href="about.php">채팅</a></li>
-					<li><a href="about.php">QnA</a></li>
+					<li><a href="#">${sessionScope.member.id}자유게시판!</a></li>
+					<li><a href="#">채팅</a></li>
+					<li><a href="#">QnA</a></li>
 					<li><a href="${contextPath }/prj/member/loginForm ">로그인</a></li>
 				</ul>
 			</div>

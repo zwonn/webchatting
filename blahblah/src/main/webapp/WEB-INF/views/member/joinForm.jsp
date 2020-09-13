@@ -19,6 +19,35 @@
 	};
 </script>
 </head>
+<script>
+	function fn_joinFn(){
+		let id = document.getElementById('id').value;
+		let pw = document.getElementById('pw').value;
+		let nickname = document.getElementById('nickname').value;
+		let email = document.getElementById('email').value;
+		let phone = document.getElementById('phone').value;
+		const memberInfo = JSON.stringify({id:id,pw:pw,nickname:nickname,email:email,phone:phone});
+		$.ajax({
+			data : memberInfo,
+			url : "http://localhost:8080/prj/member/newMember",
+			type : "post",
+			dataType : "text",
+			contentType : "application/json; charset=UTF-8",
+			success : function(data){
+				console.log(data);
+				if(data == 1){
+					alert("회원가입을 축하드립니다");
+					location.href="http://localhost:8080/prj/member/loginForm"
+				}else{
+					alert("에러");
+				}
+			},
+			error : function(data){
+				alert("실패");
+			}
+		})
+	}
+</script>
 <body>
 	<!-- uppermost -->
 	<%@ include file="/resources/include/main/uppermost.jsp"%>
@@ -27,7 +56,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<span style="text-align: center;"><h3>회원가입</h3></span>
-			<form action="${contextPath }/prj/member/newMember" method="post">
+			<form>
 				<p>
 					<div class="input-group">
 					<span class="input-group-addon" ></span> 
@@ -58,7 +87,7 @@
 					<input id="phone" name="phone" type="text" class="form-control" placeholder="전화번호">
 					</div>
 				</p>
-				<input type="submit" class="btn btn-default" value="가입하기" />
+				<input type="button" class="btn btn-default" onClick="fn_joinFn()" value="가입하기" />
 			</form>
 		</div>
 	</div>

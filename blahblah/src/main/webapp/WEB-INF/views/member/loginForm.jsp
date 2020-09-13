@@ -16,8 +16,33 @@
 		fs.focus();
 	};
 </script>
-
 </head>
+<script>
+	function fn_loginFn(){
+		let id = document.getElementById('id').value;
+		let pw = document.getElementById('pw').value;
+		const memberInfo = JSON.stringify({id:id,pw:pw});
+		$.ajax({
+			data : memberInfo,
+			url : "http://localhost:9080/prj/member/login",
+			type : "post",
+			dataType : "text",
+			contentType : "application/json; charset=UTF-8",
+			success : function(data){
+				console.log(data);
+				if(data == 1){
+					alert("로그인 되었습니다.");
+					location.href="http://localhost:9080/prj";
+				}else{
+					alert("회원정보를 다시 확인해주세요.");
+				}
+			},
+			error : function(data){
+				alert("실패");
+			}
+		})
+	}
+</script>
 <body>
 	<!-- uppermost -->
 	<%@ include file="/resources/include/main/uppermost.jsp"%>
@@ -38,7 +63,7 @@
 				<div class="checkbox">
 					<label><input type="checkbox"> 아이디 저장 </label>
 				</div>
-				<button type="submit" class="btn btn-default">로그인</button>
+				<button type="button" onClick="fn_loginFn()" class="btn btn-default">로그인</button>
 				<input type="button" class="btn btn-default" onClick="location.href='/prj/member/joinForm'" value="회원가입">
 				<input type="button" class="btn btn-default" value="아이디 찾기">
 				<input type="button" class="btn btn-default" value="비밀번호 찾기">

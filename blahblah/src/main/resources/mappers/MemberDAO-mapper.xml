@@ -14,4 +14,11 @@
 		)
 	</insert>
 	
+	<select id="memberCheck" parameterType="com.gaon.prj.member.vo.MemberVO" resultType="com.gaon.prj.member.vo.MemberVO">
+		select id, pw, nickname,email,phone,dcnt,gcnt,cdate
+		from member_tbl 
+		where id = #{id} 
+		  and pw = #{pw}
+	</select>
+	
 </mapper>
